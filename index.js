@@ -110,15 +110,21 @@ console.log (getLastReview(reviews));
 
   and should return an array of objects. 
 
-  For example, invoking getReviewByRating(reviews, 4) would return [{name: "Miranda", rating: 4, feedback:"fun trivia and cool vibes"},
+  For example, invoking getReviewByRating(reviews, 4) would return name: "Miranda", ra[{ting: 4, feedback:"fun trivia and cool vibes"},
     {name: "Wen", rating: 4.5, feedback:"I don't leave my house often, but when I do, it's for this place. Highly reccomend."},
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(reviews, rating) {
+    let ratingArray = [];
+    for (let i = 0; i < reviews.length; i++) {
+      if (reviews[i].rating === rating) {
+        ratingArray.push(reviews[i]);
+      }
+    }
+    return ratingArray;
   }
-
+console.log (getReviewByRating(reviews, 3));
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
@@ -133,10 +139,19 @@ and should return an array of objects.
     {name: "Brett", rating: 3, feedback: "great selection of snacks and a nice cafe area to get work done during the day."},
     {name: "Julius", rating: 2, feedback: "I was largely unimpressed by this venue. Nothing special on the menu and too expensive. The atmosphere is polarizing, and not for me, but I think some would like it." }]
 */
-  function getLongReviews(/* code here */) {
-    /* code here */
+  function getLongReviews(reviews) {
+    let longReviews = [];
+    for (let i = 0; i < reviews.length; i++) {
+      let obj = reviews[i];
+      let allFeedback = reviews[i].feedback.split(" ");
+        if (allFeedback.length > 15){
+          longReviews.push(obj);
+          console.log(longReviews)
+        } 
+    }
+    
   }
-  
+getLongReviews(reviews);
 
 /* STRETCH 3:  This challenge is not related to the data above! 
 
