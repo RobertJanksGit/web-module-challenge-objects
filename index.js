@@ -143,7 +143,7 @@ and should return an array of objects.
     let longReviews = [];
     for (let i = 0; i < reviews.length; i++) {
       let obj = reviews[i];
-      let allFeedback = reviews[i].feedback.split(" ");
+      let allFeedback = obj.feedback.split(" ");
         if (allFeedback.length > 15){
           longReviews.push(obj);
           console.log(longReviews)
@@ -171,7 +171,13 @@ The returned object should have the following characteristics:
 */
 
 
-function carMaker(/* code here */) {
-    /* code here */
-    
+function carMarker(odometer) {
+    let someVar = function (distance){ 
+      return this.odometer += distance;
+    }
+    let carObj = {odometer: odometer, drive: someVar};
+    return carObj;
 }
+let honda = carMarker(54367);
+honda.drive(4534);
+console.log(honda);
